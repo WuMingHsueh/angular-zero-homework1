@@ -18,12 +18,12 @@ export class AppComponent {
     }
   }
 
-  changeSearchInput(key: string) {
-    if (key === 'Backspace')
-    {
+  changeSearchInput($event: KeyboardEvent) {
+    if ($event.keyCode === 27) {
       this.userInput = '';
       return ;
     }
-    this.userInput += key;
+    this.userInput = $event.target.value;
+    // this.userInput += $event;
   }
 }
